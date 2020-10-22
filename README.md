@@ -1,4 +1,4 @@
-# [postcss][postcss]-use [![Build Status](https://travis-ci.org/postcss/postcss-use.svg?branch=master)][ci]
+# [postcss][postcss]-use-plus [![Build Status](https://travis-ci.org/hex-ci/postcss-use.svg?branch=master)][ci]
 
 > Enable PostCSS plugins directly in your stylesheet.
 
@@ -14,10 +14,10 @@ h1 {
 
 ## Install
 
-With [npm](https://npmjs.org/package/postcss-use) do:
+With [npm](https://npmjs.org/package/postcss-use-plus) do:
 
 ```
-npm install postcss-use --save
+npm install postcss-use-plus --save
 ```
 
 ## Example
@@ -126,6 +126,18 @@ use({
       browsers: 'last two versions'
     }
   }
+})
+```
+
+##### ruleName
+
+Type: `string` (default: `use`)
+
+The `ruleName` option is used to customize the "use" command name, which is the name after `@`.
+
+```js
+use({
+  ruleName: 'custom-use'
 })
 ```
 

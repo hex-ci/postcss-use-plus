@@ -1,6 +1,6 @@
 {
-  "name": "postcss-use",
-  "version": "3.0.0",
+  "name": "postcss-use-plus",
+  "version": "0.0.1",
   "description": "Enable PostCSS plugins directly in your stylesheet.",
   "main": "dist/index.js",
   "files": [
@@ -43,13 +43,13 @@
     "postcss-discard-font-face": "^3.0.0",
     "postcss-nesting": "^7.0.0"
   },
-  "homepage": "https://github.com/postcss/postcss-use",
+  "homepage": "https://github.com/hex-ci/postcss-use",
   "author": {
-    "name": "Ben Briggs",
-    "email": "beneb.info@gmail.com",
-    "url": "http://beneb.info"
+    "name": "Hex",
+    "email": "hex@codeigniter.org.cn",
+    "url": "https://codeigniter.org.cn"
   },
-  "repository": "postcss/postcss-use",
+  "repository": "hex-ci/postcss-use",
   "dependencies": {
     "postcss": "^7.0.5",
     "resolve-from": "^4.0.0"

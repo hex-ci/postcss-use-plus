@@ -5,12 +5,13 @@ import resolveFrom from 'resolve-from';
 const useParamsRegExp = /^([^\(\s]+)(?:\s*\(\s*([\W\w]+)\s*\))?/;
 const optionRegExp = /^\s*([\W\w]+?)\s*:\s*([\W\w]+)\s*$/;
 
-export default postcss.plugin('postcss-use', opts => {
+export default postcss.plugin('postcss-use-plus', opts => {
     // options
     const {
         modules = [],
         options = {},
         resolveFromFile = false,
+        ruleName = 'use',
     } = Object(opts);
 
     return (root, result) => {
@@ -18,7 +19,7 @@ export default postcss.plugin('postcss-use', opts => {
         const preservedPlugins = result.processor.plugins.slice();
 
         // walk @use rules
-        root.walkAtRules('use', rule => {
+        root.walkAtRules(ruleName, rule => {
             // match plugin and plugin params
             const paramsMatch = rule.params.match(useParamsRegExp);
 
