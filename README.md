@@ -1,4 +1,4 @@
-# [postcss][postcss]-use-plus [![Build Status](https://travis-ci.org/hex-ci/postcss-use.svg?branch=master)][ci]
+# postcss-use-plus [![Build Status](https://travis-ci.org/hex-ci/postcss-use.svg?branch=master)](https://travis-ci.org/hex-ci/postcss-use)
 
 > Enable PostCSS plugins directly in your stylesheet.
 
