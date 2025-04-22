@@ -1,6 +1,6 @@
 # postcss-use-plus [![Build Status](https://travis-ci.org/hex-ci/postcss-use-plus.svg?branch=master)](https://travis-ci.org/hex-ci/postcss-use-plus)
 
-> Enable PostCSS plugins directly in your stylesheet.
+> Enable PostCSS plugins directly in your stylesheet. Support PostCSS 8.
 
 ```css
 @use postcss-preset-env(stage: 0, browsers: "last 2 versions");
