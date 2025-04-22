@@ -1,4 +1,4 @@
-# postcss-use-plus [![Build Status](https://github.com/hex-ci/postcss-use-plus/actions/workflows/ci.yml/badge.svg)](https://github.com/hex-ci/postcss-use-plus/actions/workflows/ci.yml)
+# postcss-use-plus [![Build Status](https://github.com/hex-ci/postcss-use-plus/actions/workflows/ci.yml/badge.svg)](https://github.com/hex-ci/postcss-use-plus/actions/workflows/ci.yml) [![Coverage Status](https://coveralls.io/repos/github/hex-ci/postcss-use-plus/badge.svg?branch=master)](https://coveralls.io/github/hex-ci/postcss-use-plus?branch=master)
 
 > Enable PostCSS plugins directly in your stylesheet. Support PostCSS 8.
 
