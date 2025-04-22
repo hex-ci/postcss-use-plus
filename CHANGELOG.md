@@ -1,3 +1,7 @@
+# 4.0.0
+
+* postcss-use-plus support PostCSS 8.
+
 # 3.0.0
 
 * postcss-use now uses commas instead of semicolons to separate options in
