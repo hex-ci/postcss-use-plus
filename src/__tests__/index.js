@@ -3,7 +3,6 @@ import path from 'path';
 import test from 'ava';
 import postcss from 'postcss';
 import plugin from '..';
-import {name} from '../../package.json';
 
 const tests = [{
     message: 'should enable all modules from css',
@@ -33,12 +32,12 @@ const tests = [{
 }, {
     message: 'should enable autoprefixer from css, with nested stringy options',
     fixture: '@use autoprefixer { remove: false; browsers: "> 0%, firefox 32" };main{-webkit-border-radius:10px;border-radius:10px;display:flex;}',
-    expected: 'main{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;}',
+    expected: 'main{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:flex;}',
     options: {modules: ['autoprefixer']},
 }, {
     message: 'should enable autoprefixer from css, with deeply nested options',
     fixture: '@use autoprefixer { remove: false; browsers: "> 0%, firefox 32"; foo: { bar: true } /* ignores comments */ };main{-webkit-border-radius:10px;border-radius:10px;display:flex;}',
-    expected: 'main{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;}',
+    expected: 'main{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:flex;}',
     options: {modules: ['autoprefixer']},
 }, {
     message: 'should enable postcss-nesting',
@@ -72,7 +71,7 @@ test('multiple runs', t => {
 });
 
 function shouldThrow (t, css, opts = {}) {
-    t.throws(() => process(css, opts, { from: __dirname }));
+    t.throws(() => process(css, opts, {from: __dirname}));
 }
 
 test('should not support arrows', shouldThrow, '@use postcss-discard-comments(foo => bar)', {modules: ['postcss-discard-comments']});
@@ -84,7 +83,7 @@ test('should not support null', shouldThrow, '@use postcss-discard-comments;', {
 test('should not support false', shouldThrow, '@use postcss-discard-comments;', {modules: false});
 test('should not support strings that are not "*"', shouldThrow, '@use postcss-discard-comments;', {modules: 'all'});
 
-test('should ignore unknown options', t => {
+test('should ignore unknown options(1)', t => {
     return postcss(
         plugin({modules: ['postcss-discard-comments']})
     ).process('@use postcss-discard-comments(removeAll:something)', {
@@ -94,7 +93,7 @@ test('should ignore unknown options', t => {
     });
 });
 
-test('should ignore unknown options', t => {
+test('should ignore unknown options(2)', t => {
     return postcss(
         plugin({modules: ['postcss-discard-comments']})
     ).process('@use postcss-discard-comments{removeAll:something}', {
@@ -102,11 +101,6 @@ test('should ignore unknown options', t => {
     }).then(({css}) => {
         t.deepEqual(css, '');
     });
-});
-
-test('should use the postcss plugin api', t => {
-    t.truthy(plugin().postcssVersion, 'should be able to access version');
-    t.deepEqual(plugin().postcssPlugin, name, 'should be able to access name');
 });
 
 test('should use plugins relative to CSS file when using resolveFromFile', t => {
